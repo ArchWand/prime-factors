@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ull;
-#define DEBUG 1
-#define n 50
-#define w 7
+#define DEBUG 0
+#define n 100000000
+#define w 17
 /* W table
  *  5: < 29
  *  7: < 209
@@ -26,7 +26,6 @@ typedef unsigned long long ull;
  * 300000000: 19
  */
 
-
 ull* factors;
 
 enum IND { PROD, FACT1, EXP1, FACT2 };
@@ -35,7 +34,7 @@ void update_factors(ull i, ull d) {
 	if (d == 1) return;
 
 	// Update factors for all multiples of d
-	for (ull j = i; j <= n; j += i) {
+	for (ull j = i; j <= (ull)n; j += i) {
 		ull* f = factors + j*w;
 		f[PROD] *= d;
 
@@ -79,16 +78,16 @@ void print_factor(ull* f, ull num) {
 
 int main() {
 	// Initialize factors
-	factors = new ull[(n+1)*w];
-	for (ull i = 0; i < (n+1)*w; i++) {
+	factors = new ull[(ull)(n+1)*w];
+	for (ull i = 0; i < (ull)(n+1)*w; i++) {
 		factors[i] = 0;
 	}
-	for (ull i = 0; i < (n+1)*w; i += w) {
+	for (ull i = 0; i < (ull)(n+1)*w; i += w) {
 		factors[i] = 1;
 	}
 
 	// Find and print factors
-	for (ull i = 2; i <= n; i++) {
+	for (ull i = 2; i <= (ull)n; i++) {
 		ull d = i / factors[i*w];
 		update_factors(i, d);
 		print_factor(factors+i*w, i);
