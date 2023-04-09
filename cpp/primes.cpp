@@ -23,7 +23,6 @@ typedef unsigned long long ull;
  *  10000000: 17
  *  30000000: 17
  * 100000000: 17
- * 300000000: 19
  */
 
 ull* factors;
