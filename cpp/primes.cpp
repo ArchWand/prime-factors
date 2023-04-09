@@ -2,9 +2,10 @@
 using namespace std;
 typedef unsigned long long ull;
 #define DEBUG 1
-#define n 1000000
-#define w 15
+#define n 50
+#define w 7
 /* W table
+ *       20:  5
  *       50:  7
  *      100:  7
  *  1000000: 15
